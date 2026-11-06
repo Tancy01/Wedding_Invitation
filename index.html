@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant & Tulika's Wedding Invitation</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Canvas Confetti for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sapphire: {
+                            50: '#F0F7FF',
+                            100: '#E0EFFE',
+                            200: '#BAE0FD',
+                            300: '#7CD0FC',
+                            500: '#2563EB',
+                            600: '#1D4ED8',
+                            700: '#1E3A8A',
+                            900: '#0F172A',
+                        },
+                        iceBlue: '#F8FAFC',
+                        warmText: '#0F172A',
+                        mutedText: '#475569',
+                    },
+                    fontFamily: {
+                        cinzel: ['"Cinzel Decorative"', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                        marcellus: ['"Marcellus"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .blue-gradient-text {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blue-texture-bg {
+            background-color: #FFFFFF;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(224, 239, 254, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(186, 224, 253, 0.4) 0px, transparent 50%),
+                radial-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        .heart-beat {
+            animation: heartPulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes heartPulse {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.25); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.25); }
+            70% { transform: scale(1); }
+        }
+
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            box-shadow: 0 15px 35px -5px rgba(30, 58, 138, 0.06), 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Floral Motif Styling */
+        .floral-accent {
+            color: #3B82F6;
+            opacity: 0.7;
+        }
+
+        /* Music Floating Pulse */
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+    </style>
+</head>
+<body class="bg-white text-warmText font-sans antialiased selection:bg-sapphire-500 selection:text-white blue-texture-bg min-h-screen">
+
+    <!-- Background Audio Toggle -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="musicToggle" onclick="toggleMusic()" class="bg-sapphire-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition duration-300 pulse-ring">
+            <i id="musicIcon" class="fas font-solid fa-music text-xl"></i>
+        </button>
+    </div>
+
+    <!-- MAIN WRAPPER CARD CONTAINER -->
+    <div class="max-w-4xl mx-auto px-4 py-6 md:py-12">
+        
+        <!-- HEADER EMBLEM & GANESH MOTIF -->
+        <header class="text-center mb-8 relative">
+            <div class="inline-block p-3 rounded-full border border-sapphire-500/30 bg-white shadow-md mb-3">
+                <!-- Blue Floral Om / Ganesha Symbol -->
+                <svg class="w-12 h-12 text-sapphire-600 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6.5A5.5,5.5 0 0,0 6.5,12A5.5,5.5 0 0,0 12,17.5A5.5,5.5 0 0,0 17.5,12A5.5,5.5 0 0,0 12,6.5Z" opacity="0.2"/>
+                    <path d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                </svg>
+            </div>
+            <p class="font-marcellus text-sapphire-700 tracking-widest text-xs uppercase md:text-sm font-semibold">|| Shri Ganeshaya Namah ||</p>
+            <p class="font-script text-3xl text-sapphire-600 mt-1">Together with their families</p>
+        </header>
+
+        <!-- HERO SECTION CARD WITH BLUE FLORAL ACCENTS -->
+        <section class="glass-card-light rounded-3xl p-8 md:p-14 text-center border-2 border-sapphire-500/30 relative overflow-hidden mb-12">
+            <!-- Decorative Blue Floral Corner Motifs -->
+            <div class="absolute top-2 left-2 text-sapphire-400 text-3xl pointer-events-none opacity-60">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <div class="absolute top-2 right-2 text-sapphire-400 text-3xl pointer-events-none opacity-60 transform rotate-90">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <div class="absolute bottom-2 left-2 text-sapphire-400 text-3xl pointer-events-none opacity-60 transform -rotate-90">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <div class="absolute bottom-2 right-2 text-sapphire-400 text-3xl pointer-events-none opacity-60 transform rotate-180">
+                <i class="fas fa-seedling"></i>
+            </div>
+
+            <!-- Subtle Flower Divider Header -->
+            <div class="flex items-center justify-center gap-2 mb-3 text-sapphire-400">
+                <i class="fas fa-[#60A5FA] fa-fan text-sm animate-spin-slow"></i>
+                <i class="fas fa-flower text-lg"></i>
+                <i class="fas fa-[#60A5FA] fa-fan text-sm animate-spin-slow"></i>
+            </div>
+
+            <span class="inline-block px-5 py-1.5 rounded-full border border-sapphire-500/30 bg-sapphire-50 text-sapphire-700 text-xs tracking-widest uppercase font-marcellus font-semibold mb-4">
+                Wedding Invitation
+            </span>
+
+            <!-- Couple Names -->
+            <h1 class="font-cinzel text-4xl md:text-6xl font-bold blue-gradient-text tracking-wider leading-tight my-2">
+                Nishant
+            </h1>
+            <div class="flex items-center justify-center gap-3 my-1">
+                <span class="h-px w-12 bg-sapphire-200"></span>
+                <span class="font-script text-4xl md:text-5xl text-sapphire-600">&</span>
+                <span class="h-px w-12 bg-sapphire-200"></span>
+            </div>
+            <h1 class="font-cinzel text-4xl md:text-6xl font-bold blue-gradient-text tracking-wider leading-tight my-2">
+                Tulika
+            </h1>
+
+            <p class="font-marcellus text-lg md:text-xl text-mutedText mt-4 max-w-xl mx-auto font-light">
+                Invite you to celebrate their union of love, tradition, and togetherness as they begin their forever journey.
+            </p>
+
+            <!-- Date Banner -->
+            <div class="mt-8 inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-sapphire-50 border border-sapphire-500/20 shadow-inner">
+                <i class="far fa-calendar-alt text-sapphire-600 text-xl"></i>
+                <span class="font-marcellus text-warmText text-lg md:text-xl tracking-wider font-semibold">Tuesday, December 1, 2026</span>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="mt-10 grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto">
+                <div class="bg-white border border-sapphire-500/20 rounded-xl p-3 text-center shadow-sm">
+                    <span id="days" class="block font-cinzel text-2xl md:text-4xl font-bold text-sapphire-700">00</span>
+                    <span class="text-[10px] md:text-xs text-mutedText uppercase tracking-widest font-sans">Days</span>
+                </div>
+                <div class="bg-white border border-sapphire-500/20 rounded-xl p-3 text-center shadow-sm">
+                    <span id="hours" class="block font-cinzel text-2xl md:text-4xl font-bold text-sapphire-700">00</span>
+                    <span class="text-[10px] md:text-xs text-mutedText uppercase tracking-widest font-sans">Hours</span>
+                </div>
+                <div class="bg-white border border-sapphire-500/20 rounded-xl p-3 text-center shadow-sm">
+                    <span id="minutes" class="block font-cinzel text-2xl md:text-4xl font-bold text-sapphire-700">00</span>
+                    <span class="text-[10px] md:text-xs text-mutedText uppercase tracking-widest font-sans">Mins</span>
+                </div>
+                <div class="bg-white border border-sapphire-500/20 rounded-xl p-3 text-center shadow-sm">
+                    <span id="seconds" class="block font-cinzel text-2xl md:text-4xl font-bold text-sapphire-700">00</span>
+                    <span class="text-[10px] md:text-xs text-mutedText uppercase tracking-widest font-sans">Secs</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARENTS & BLESSINGS SECTION -->
+        <section class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="font-cinzel text-2xl md:text-3xl text-warmText tracking-wider">With the Blessings Of</h2>
+                <div class="h-0.5 w-24 bg-gradient-to-r from-transparent via-sapphire-500 to-transparent mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Groom Parents -->
+                <div class="glass-card-light p-6 md:p-8 rounded-2xl border border-sapphire-500/20 text-center hover:border-sapphire-500/50 transition duration-300">
+                    <div class="w-16 h-16 bg-sapphire-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-sapphire-500/20">
+                        <i class="fas fa-crown text-sapphire-600 text-2xl"></i>
+                    </div>
+                    <span class="text-xs uppercase font-marcellus text-sapphire-700 font-semibold tracking-widest block mb-2">Groom's Family</span>
+                    <p class="font-marcellus text-mutedText text-sm md:text-base">
+                        Son of <br>
+                        <strong class="text-warmText text-lg md:text-xl font-cinzel block mt-1">Mr. Arvind Singh & Mrs. Pinki</strong>
+                    </p>
+                </div>
+
+                <!-- Bride Parents -->
+                <div class="glass-card-light p-6 md:p-8 rounded-2xl border border-sapphire-500/20 text-center hover:border-sapphire-500/50 transition duration-300">
+                    <div class="w-16 h-16 bg-sapphire-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-sapphire-500/20">
+                        <i class="fas fa-gem text-sapphire-600 text-2xl"></i>
+                    </div>
+                    <span class="text-xs uppercase font-marcellus text-sapphire-700 font-semibold tracking-widest block mb-2">Bride's Family</span>
+                    <p class="font-marcellus text-mutedText text-sm md:text-base">
+                        Daughter of <br>
+                        <strong class="text-warmText text-lg md:text-xl font-cinzel block mt-1">Mr. Hariom Malik & Mrs. Mithlesh</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECEMBER 2026 CALENDAR HIGHLIGHT SECTION -->
+        <section class="glass-card-light rounded-3xl p-6 md:p-10 border border-sapphire-500/20 shadow-xl mb-12">
+            <div class="text-center mb-6">
+                <span class="text-sapphire-700 font-marcellus text-xs uppercase tracking-widest font-semibold">Save The Date</span>
+                <h2 class="font-cinzel text-2xl md:text-3xl text-warmText">December 2026</h2>
+                <p class="text-xs text-mutedText mt-1">Mark your calendar for the auspicious day</p>
+            </div>
+
+            <!-- Calendar Container -->
+            <div class="max-w-md mx-auto bg-white rounded-2xl p-4 md:p-6 border border-sapphire-500/20 shadow-sm">
+                <!-- Days Header -->
+                <div class="grid grid-cols-7 text-center font-marcellus text-sapphire-700 text-xs md:text-sm font-semibold mb-3 border-b border-sapphire-500/10 pb-2">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+
+                <!-- Calendar Grid (Dec 2026 starts on Tuesday, Dec 1) -->
+                <div class="grid grid-cols-7 gap-1 md:gap-2 text-center text-xs md:text-sm font-sans">
+                    <!-- Blank slots for Sun, Mon (Nov ends on Mon Nov 30) -->
+                    <div class="p-2 text-mutedText/30">29</div>
+                    <div class="p-2 text-mutedText/30">30</div>
+
+                    <!-- Dec 1 (RED TRANSPARENT BEATING HEART WITH NO OUTLINE/STROKE) -->
+                    <div class="relative p-2.5 rounded-xl bg-sapphire-50 text-warmText font-bold flex items-center justify-center border border-sapphire-500/20 shadow-md cursor-pointer group">
+                        <!-- Red Transparent Heart with zero stroke (stroke="none"), fill="rgba(239, 68, 68, 0.35)" -->
+                        <svg class="w-9 h-9 heart-beat absolute pointer-events-none" viewBox="0 0 24 24" fill="rgba(239, 68, 68, 0.38)" stroke="none">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <!-- Date number 1 clearly visible in front -->
+                        <span class="relative z-10 text-base font-extrabold text-red-900">1</span>
+                    </div>
+
+                    <!-- Days 2 to 31 -->
+                    <script>
+                        for(let i=2; i<=31; i++) {
+                            document.write(`<div class="p-2 rounded-lg hover:bg-sapphire-50 text-warmText transition">${i}</div>`);
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <button onclick="downloadICS()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-sapphire-600 text-white font-semibold text-sm hover:bg-sapphire-700 transition duration-300 shadow-md">
+                    <i class="far fa-calendar-plus"></i> Add to Google / Apple Calendar
+                </button>
+            </div>
+        </section>
+
+        <!-- ITINERARY & EVENTS SECTION -->
+        <section class="mb-12">
+            <div class="text-center mb-8">
+                <!-- Floral Header Accent -->
+                <div class="text-sapphire-400 text-sm mb-1"><i class="fas fa-leaf"></i> <i class="fas fa-flower"></i> <i class="fas fa-leaf"></i></div>
+                <h2 class="font-cinzel text-2xl md:text-3xl text-warmText tracking-wider">Wedding Celebrations</h2>
+                <p class="font-marcellus text-mutedText text-sm mt-1">Join us in each sacred & joyous ceremony</p>
+                <div class="h-0.5 w-24 bg-gradient-to-r from-transparent via-sapphire-500 to-transparent mx-auto mt-2"></div>
+            </div>
+
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <!-- Haldi & Mehendi -->
+                <div class="glass-card-light p-5 md:p-6 rounded-2xl border-l-4 border-l-sapphire-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-lg transition">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-sapphire-50 flex items-center justify-center text-sapphire-600 text-xl shrink-0 border border-sapphire-500/20">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-cinzel text-lg text-warmText font-bold">Haldi & Mehendi</h3>
+                            <p class="text-xs text-mutedText mt-1"><i class="far fa-clock text-sapphire-600 mr-1"></i> 01:00 PM Onwards</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-marcellus text-sapphire-700 bg-sapphire-50 px-3 py-1 rounded-full border border-sapphire-500/20">Nov 30, 2026</span>
+                </div>
+
+                <!-- Main Wedding -->
+                <div class="glass-card-light p-5 md:p-6 rounded-2xl border-l-4 border-l-sapphire-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white ring-1 ring-sapphire-500/30 shadow-md">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-sapphire-600 flex items-center justify-center text-white text-xl shrink-0 shadow">
+                            <i class="fas fa-place-of-worship"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-cinzel text-xl text-warmText font-bold">Baraat & Grand Wedding</h3>
+                            <p class="text-xs text-mutedText mt-1"><i class="far fa-clock text-sapphire-600 mr-1"></i> 08:30 PM Onwards</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-marcellus text-white bg-sapphire-600 font-bold px-3 py-1 rounded-full shadow-sm">Dec 1, 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENUE & LOCATION CARD -->
+        <section class="glass-card-light rounded-3xl p-6 md:p-10 border border-sapphire-500/20 shadow-2xl mb-12">
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-sapphire-50 flex items-center justify-center text-sapphire-600 text-xl mx-auto mb-2 border border-sapphire-500/20">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h2 class="font-cinzel text-2xl md:text-3xl text-warmText">Wedding Venue</h2>
+                <div class="h-0.5 w-16 bg-sapphire-500 mx-auto mt-2"></div>
+            </div>
+
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <h3 class="font-cinzel text-xl md:text-2xl text-sapphire-700 font-bold">UV Club Banquet Hall and Resort</h3>
+                <p class="font-marcellus text-warmText text-sm md:text-base leading-relaxed">
+                    NH 58, Meerut Bypass Road, Meerut, Uttar Pradesh
+                </p>
+                <p class="text-xs text-mutedText">
+                    <i class="fas fa-info-circle text-sapphire-600 mr-1"></i> Easily accessible via NH 58 Bypass with ample valet parking space.
+                </p>
+
+                <!-- Navigation Buttons -->
+                <div class="pt-4 flex flex-wrap justify-center gap-4">
+                    <a href="https://maps.google.com/?q=UV+Club+Banquet+Hall+and+Resort+NH+58+Meerut+Bypass+Road+Meerut+Uttar+Pradesh" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sapphire-600 to-sapphire-700 text-white font-bold text-sm hover:from-sapphire-700 hover:to-sapphire-900 transition duration-300 shadow-lg">
+                        <i class="fas fa-directions text-lg"></i> Get Directions on Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Map View Container -->
+            <div class="mt-8 rounded-2xl overflow-hidden border border-sapphire-500/20 shadow-sm h-64 md:h-80 w-full relative">
+                <iframe 
+                    title="Venue Map"
+                    class="w-full h-full border-0"
+                    src="https://maps.google.com/maps?q=UV%20Club%20Banquet%20Hall%20and%20Resort%20NH%2058%20Meerut%20Bypass%20Road%20Meerut%20Uttar%20Pradesh&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE RSVP & BLESSING FORM -->
+        <section class="glass-card-light rounded-3xl p-6 md:p-10 border border-sapphire-500/20 shadow-2xl mb-12">
+            <div class="text-center mb-8">
+                <h2 class="font-cinzel text-2xl md:text-3xl text-warmText tracking-wider">RSVP & Blessings</h2>
+                <p class="font-marcellus text-mutedText text-sm mt-1">Please confirm your presence and send your warm wishes to the couple</p>
+                <div class="h-0.5 w-20 bg-sapphire-500 mx-auto mt-2"></div>
+            </div>
+
+            <form id="rsvpForm" onsubmit="handleRSVP(event)" class="max-w-xl mx-auto space-y-4">
+                <div>
+                    <label class="block text-xs font-marcellus uppercase text-sapphire-700 font-semibold mb-1">Your Full Name *</label>
+                    <input type="text" id="guestName" required placeholder="e.g. Rajesh Sharma" class="w-full px-4 py-3 rounded-xl bg-white border border-sapphire-500/20 text-warmText placeholder-mutedText/40 focus:outline-none focus:border-sapphire-500 shadow-sm transition">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-marcellus uppercase text-sapphire-700 font-semibold mb-1">Number of Guests</label>
+                        <select id="guestCount" class="w-full px-4 py-3 rounded-xl bg-white border border-sapphire-500/20 text-warmText focus:outline-none focus:border-sapphire-500 shadow-sm transition">
+                            <option value="1">1 Person</option>
+                            <option value="2">2 Persons</option>
+                            <option value="3">3 Persons</option>
+                            <option value="4+">Family / 4+ Persons</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-marcellus uppercase text-sapphire-700 font-semibold mb-1">Attendance Status</label>
+                        <select id="attendance" class="w-full px-4 py-3 rounded-xl bg-white border border-sapphire-500/20 text-warmText focus:outline-none focus:border-sapphire-500 shadow-sm transition">
+                            <option value="Attending">Joyfully Attending</option>
+                            <option value="Regretfully Unable">Sending Blessings From Afar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-marcellus uppercase text-sapphire-700 font-semibold mb-1">Your Warm Wishes & Blessings</label>
+                    <textarea id="blessingMessage" rows="3" placeholder="Write your heartfelt message for Nishant & Tulika..." class="w-full px-4 py-3 rounded-xl bg-white border border-sapphire-500/20 text-warmText placeholder-mutedText/40 focus:outline-none focus:border-sapphire-500 shadow-sm transition"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sapphire-600 via-sapphire-700 to-sapphire-600 text-white font-bold font-marcellus text-base hover:opacity-95 transition duration-300 shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> Send Confirmation & Blessings
+                </button>
+            </form>
+
+            <!-- Dynamic Blessings Wall -->
+            <div id="wishesContainer" class="mt-8 pt-8 border-t border-sapphire-500/10 max-w-xl mx-auto hidden">
+                <h4 class="font-cinzel text-lg text-sapphire-700 font-bold text-center mb-4"><i class="fas fa-heart text-blue-600 mr-2"></i> Messages of Love</h4>
+                <div id="wishesList" class="space-y-3">
+                    <!-- Dynamic Items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EASY SHARE & INVITATION LINK SECTION -->
+        <section class="glass-card-light rounded-2xl p-6 text-center border border-sapphire-500/20 mb-12">
+            <h3 class="font-cinzel text-xl text-warmText mb-2">Share Invitation</h3>
+            <p class="font-marcellus text-xs text-mutedText mb-4">Easily send this invitation card to friends & family</p>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <button onclick="shareWhatsApp()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition shadow">
+                    <i class="fab fa-whatsapp text-lg"></i> Share via WhatsApp
+                </button>
+                <button onclick="copyInviteLink()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-sapphire-500/30 text-sapphire-700 text-sm font-semibold hover:bg-sapphire-50 transition shadow-sm">
+                    <i class="far fa-copy text-lg"></i> Copy Invitation Link
+                </button>
+            </div>
+            <p id="copyStatus" class="text-xs text-sapphire-700 mt-2 font-semibold hidden">Link copied to clipboard!</p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs font-marcellus text-mutedText space-y-2 pb-8">
+            <p>|| Warm Regards & Warm Welcome ||</p>
+            <p class="text-sapphire-700 font-bold">Singh & Malik Families</p>
+            <p class="text-[10px]">Designed with ❤️ for Nishant & Tulika's Wedding</p>
+        </footer>
+
+    </div>
+
+    <!-- AUDIO PLAYER (ROYAL SHAHNAI / AMBIENT INSTRUMENTAL) -->
+    <audio id="weddingAudio" loop>
+        <!-- Royalty-free Indian wedding background instrumental track -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-instrumental-flute-11234.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- COUNTDOWN TIMER ---
+        const weddingDate = new Date('December 1, 2026 20:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- MUSIC TOGGLE ---
+        let isPlaying = false;
+        const audio = document.getElementById('weddingAudio');
+        const musicIcon = document.getElementById('musicIcon');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.className = "fas fa-music text-xl";
+            } else {
+                audio.play().catch(e => console.log("Audio play blocked by browser policy"));
+                musicIcon.className = "fas fa-pause text-xl";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // --- RSVP & BLESSING HANDLER ---
+        function handleRSVP(event) {
+            event.preventDefault();
+            const name = document.getElementById('guestName').value;
+            const guests = document.getElementById('guestCount').value;
+            const status = document.getElementById('attendance').value;
+            const message = document.getElementById('blessingMessage').value;
+
+            if (!name) return;
+
+            // Trigger Confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Add wish to wall
+            const wishesContainer = document.getElementById('wishesContainer');
+            const wishesList = document.getElementById('wishesList');
+
+            wishesContainer.classList.remove('hidden');
+
+            const wishCard = document.createElement('div');
+            wishCard.className = "bg-white border border-gold-500/30 p-3 rounded-xl text-left shadow-sm";
+            wishCard.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <strong class="text-gold-700 text-sm font-cinzel">${escapeHTML(name)}</strong>
+                    <span class="text-[10px] bg-gold-100 text-gold-700 font-semibold px-2 py-0.5 rounded border border-gold-500/20">${escapeHTML(status)} (${escapeHTML(guests)})</span>
+                </div>
+                ${message ? `<p class="text-xs text-warmText italic">"${escapeHTML(message)}"</p>` : ''}
+            `;
+
+            wishesList.prepend(wishCard);
+
+            // Reset Form & Alert
+            document.getElementById('rsvpForm').reset();
+            alert("Thank you " + name + "! Your blessings and RSVP have been recorded.");
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // --- CALENDAR (.ICS FILE GENERATOR) ---
+        function downloadICS() {
+            const title = "Nishant & Tulika's Wedding";
+            const description = "Wedding ceremony of Nishant & Tulika at UV Club Banquet Hall and Resort, Meerut.";
+            const location = "UV Club Banquet Hall and Resort, NH 58, Meerut Bypass Road, Meerut, Uttar Pradesh";
+            const startDate = "20261201T100000Z";
+            const endDate = "20261202T020000Z";
+
+            const icsData = 
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//Nishant Tulika//EN
+BEGIN:VEVENT
+SUMMARY:${title}
+DESCRIPTION:${description}
+LOCATION:${location}
+DTSTART:${startDate}
+DTEND:${endDate}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Nishant_Tulika_Wedding.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // --- SHARE HANDLERS ---
+        function shareWhatsApp() {
+            const text = encodeURIComponent(
+                "🌸 *Wedding Invitation: Nishant & Tulika* 🌸\n\n" +
+                "With the blessings of our families, we request the honor of your presence on our wedding day!\n\n" +
+                "🗓 *Date:* Tuesday, 1st December 2026\n" +
+                "📍 *Venue:* UV Club Banquet Hall and Resort, NH 58, Meerut Bypass Road, Meerut\n\n" +
+                "Click the link to view the complete invitation, map location & send your blessings:\n"
+            );
+            window.open(`https://api.whatsapp.com/send?text=${text}` + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function copyInviteLink() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            const status = document.getElementById('copyStatus');
+            status.classList.remove('hidden');
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
